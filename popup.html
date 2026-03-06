@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knight Security</title>
+  <style>
+    :root {
+      --bg: #000;
+      --card: #0a0a0a;
+      --text: #f0f0f0;
+      --dim: #888;
+      --danger: #ff0000;
+      --shadow: #111;
+      --border: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      width: 320px;
+      min-height: 400px;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      color: var(--danger);
+      margin-bottom: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    #toggle-knight {
+      width: 1.5rem;
+      height: 1.5rem;
+      accent-color: var(--danger);
+      cursor: pointer;
+    }
+
+    .toggle label {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    #recent-list {
+      list-style: none;
+      min-height: 4rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      background: var(--shadow);
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Knight Security</h1>
+
+    <div class="toggle">
+      <input type="checkbox" id="toggle-knight">
+      <label for="toggle-knight">Protection Active</label>
+    </div>
+
+    <h2>Recently Blocked</h2>
+    <ul id="recent-list"></ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
