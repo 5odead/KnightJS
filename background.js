@@ -1,3 +1,4 @@
+let isEnabled = true;
 let blacklist = [];
 // empty start
 
@@ -32,10 +33,21 @@ function isBlacklisted(url) {
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
 // chrome api with event
     if (details.frameId !== 0) return;
-
+    console.log("Knight: isEnabled is", isEnabled);
+    if (!isEnabled) {
+            console.log("Knight: protection is off, allowing URL");
+    return;
+    }
     if (isBlacklisted(details.url)) {
         chrome.tabs.update(details.tabId, { url: chrome.runtime.getURL("blocked.html") + "?url=" + encodeURIComponent(details.url)
 // change current tab to blocked.html and encode the phishing url
         });
+    }
+});
+
+chrome.runtime.onMessage.addListener(function(message){
+    if (message.action === "setEnabled") {
+        isEnabled = message.value;
+        console.log("Knight: isEnabled set to", isEnabled);
     }
 });
