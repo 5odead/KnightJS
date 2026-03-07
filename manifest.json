@@ -3,28 +3,30 @@
   "name": "Knight",
   "version": "1.0",
   "description": "Protects you from malicious URLs.",
-
   "permissions": [
     "webNavigation",
     "declarativeNetRequest",
     "storage",
     "tabs"
   ],
-
   "host_permissions": [
     "*://*/*"
   ],
-
   "background": {
     "service_worker": "background.js"
   },
-
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icons/icon48.png"
+    "default_icon": "icons/icon-default.png"
+  },
+  "icons": {
+    "64": "icons/icon-default.png"
   },
 
-  "icons": {
-    "48": "icons/icon48.png"
+  "content_scripts": [
+  {
+    "matches": ["*://*/*"],
+    "js": ["content.js"]
   }
+]
 }
