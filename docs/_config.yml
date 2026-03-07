@@ -1,0 +1,24 @@
+title: Knight Extension
+description: Documentation for the Knight phishing protection Chrome extension
+theme: just-the-docs
+
+url: "" # leave blank for GitHub Pages
+
+# Sidebar navigation order
+nav_sort: case_insensitive
+
+# Footer
+footer_content: "Knight Extension &copy; 2025"
+
+# Enable search
+search_enabled: true
+
+# Color scheme (dark)
+color_scheme: dark
+
+# Aux links (top right)
+aux_links:
+  "View on GitHub":
+    - "https://github.com/5odead/KnightJS"
+
+aux_links_new_tab: true
